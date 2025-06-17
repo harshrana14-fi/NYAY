@@ -1,7 +1,7 @@
 'use client';
 
-import { motion } from 'framer-motion';
-import { Variants } from 'framer-motion';
+
+import { motion, Variants } from 'framer-motion';
 
 import ChatbotWidget from '@/components/ChatbotWidget';
 import { Button } from '@/components/ui/button';
@@ -13,18 +13,17 @@ import AnimatedStats from '@/components/AnimatedStats';
 import LawyerCard from '@/components/LawyerCard';
 import TestimonialCarousel from '@/components/TestimonialCarousel';
 
-
 const fadeUp: Variants = {
   hidden: { opacity: 0, y: 20 },
-  visible: {
+  visible: (custom: number = 1) => ({
     opacity: 1,
     y: 0,
     transition: {
-      delay: 0.3,
+      delay: 0.2 * custom, // delay based on custom index
       duration: 0.6,
       ease: [0.25, 0.1, 0.25, 1],
     },
-  },
+  }),
 };
 
 
