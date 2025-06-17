@@ -1,6 +1,8 @@
 'use client';
 
-import { motion, easeInOut } from 'framer-motion';
+import { motion } from 'framer-motion';
+import { Variants } from 'framer-motion';
+
 import ChatbotWidget from '@/components/ChatbotWidget';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
@@ -12,7 +14,7 @@ import LawyerCard from '@/components/LawyerCard';
 import TestimonialCarousel from '@/components/TestimonialCarousel';
 
 
-const fadeUp = {
+const fadeUp: Variants = {
   hidden: { opacity: 0, y: 20 },
   visible: {
     opacity: 1,
@@ -20,10 +22,12 @@ const fadeUp = {
     transition: {
       delay: 0.3,
       duration: 0.6,
-      ease: easeInOut // Use the imported easing array
-    }
-  }
+      ease: [0.25, 0.1, 0.25, 1],
+    },
+  },
 };
+
+
 
 
 const lawyers = [
