@@ -1,8 +1,6 @@
 'use client';
 
-
 import { motion, Variants } from 'framer-motion';
-
 import ChatbotWidget from '@/components/ChatbotWidget';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
@@ -19,15 +17,12 @@ const fadeUp: Variants = {
     opacity: 1,
     y: 0,
     transition: {
-      delay: 0.2 * custom, // delay based on custom index
+      delay: 0.2 * custom,
       duration: 0.6,
       ease: [0.25, 0.1, 0.25, 1],
     },
   }),
 };
-
-
-
 
 const lawyers = [
   { name: 'Adv. Aakash Mehta', specialty: 'Criminal Defense, Delhi HC', status: 'Available', image: '/avatars/aakash-mehta.png', link: '/lawyer/aakash-mehta' },
@@ -69,6 +64,7 @@ export default function HomePage() {
           initial="hidden"
           animate="visible"
           variants={fadeUp}
+          custom={0}
           className="w-72 sm:w-96 mb-6"
         >
           <Lottie animationData={justiceAnimation} loop />
@@ -147,6 +143,7 @@ export default function HomePage() {
           whileInView="visible"
           viewport={{ once: true }}
           variants={fadeUp}
+          custom={1}
         >
           How Nyay Portal Works
         </motion.h2>
@@ -158,7 +155,7 @@ export default function HomePage() {
           ].map((item, i) => (
             <motion.div
               key={i}
-              custom={i}
+              custom={i + 1}
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}
@@ -179,7 +176,14 @@ export default function HomePage() {
 
       {/* Lawyer Showcase */}
       <section className="relative bg-gradient-to-br from-white to-gray-50 py-20 px-6">
-        <motion.h2 className="text-3xl font-bold text-center mb-10 text-gray-800" initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp}>
+        <motion.h2
+          className="text-3xl font-bold text-center mb-10 text-gray-800"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={fadeUp}
+          custom={1}
+        >
           Meet Our Verified Lawyers
         </motion.h2>
         <div className="max-w-6xl mx-auto flex overflow-x-auto gap-6 no-scrollbar px-2 pb-2">
@@ -193,7 +197,14 @@ export default function HomePage() {
 
       {/* Blog Section */}
       <section className="bg-white py-20 px-6">
-        <motion.h2 className="text-3xl font-bold text-center mb-12 text-gray-800" initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp}>
+        <motion.h2
+          className="text-3xl font-bold text-center mb-12 text-gray-800"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={fadeUp}
+          custom={1}
+        >
           Legal Tips & Nyay Blog
         </motion.h2>
         <div className="max-w-6xl mx-auto grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
@@ -216,7 +227,14 @@ export default function HomePage() {
 
       {/* Testimonials */}
       <section className="bg-gray-100 py-16 px-6">
-        <motion.h2 className="text-3xl font-bold text-center mb-10 text-gray-800" initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp}>
+        <motion.h2
+          className="text-3xl font-bold text-center mb-10 text-gray-800"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={fadeUp}
+          custom={1}
+        >
           Success Stories
         </motion.h2>
         <TestimonialCarousel />
