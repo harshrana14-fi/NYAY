@@ -3,8 +3,7 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
-import { createUserWithEmailAndPassword } from 'firebase/auth';
-import { auth } from '@/lib/firebase';
+
 
 export default function ClientRegisterPage() {
   const router = useRouter();
@@ -20,7 +19,7 @@ export default function ClientRegisterPage() {
     setError('');
 
     try {
-      await createUserWithEmailAndPassword(auth, form.email, form.password);
+   
       router.push('/client-dashboard'); // ✅ go to dashboard after signup
     } catch (err: any) {
       console.error('Registration Error:', err);

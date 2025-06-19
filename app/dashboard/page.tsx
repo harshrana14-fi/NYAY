@@ -1,8 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { onAuthStateChanged } from 'firebase/auth';
-import { auth } from '@/lib/firebase';
+
 import { useRouter } from 'next/navigation';
 
 export default function LawyerDashboard() {
@@ -33,19 +32,7 @@ export default function LawyerDashboard() {
   // Use the email as the lawyer's name for now
   const lawyerName = userEmail ?? "Lawyer";
 
-  useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, (user) => {
-      if (user) {
-        setUserEmail(user.email);
-        setLoading(false);
-      } else {
-        router.replace('/login'); // redirect if not logged in
-      }
-    });
-
-    return () => unsubscribe();
-  }, [router]);
-
+  
   if (loading) {
     return <div className="text-center py-10">Loading dashboard...</div>;
   }

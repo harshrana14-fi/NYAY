@@ -3,8 +3,7 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
-import { signInWithEmailAndPassword } from 'firebase/auth';
-import { auth } from '@/lib/firebase'; // ✅ make sure this path is correct
+// ✅ make sure this path is correct
 
 export default function LoginPage() {
   const router = useRouter();
@@ -20,7 +19,7 @@ export default function LoginPage() {
     setError('');
 
     try {
-      await signInWithEmailAndPassword(auth, form.email, form.password);
+     
       router.push('/dashboard'); // ✅ redirect only after successful login
     } catch (err: any) {
       setError('Invalid email or password');
